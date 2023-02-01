@@ -54,7 +54,7 @@ function Login () {
               />
             </Form.Group>
             <Button variant="primary" type="submit" disabled={isLoginLoading}>
-              {isLoginLoading ? "Getting you in..." : "Login"}
+              {isLoginLoading ? "Getting you in... " : "Login"}
             </Button>
             <div className="py-4">
               <p className="text-center">

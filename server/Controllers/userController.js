@@ -1,12 +1,12 @@
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
 const validator = require("validator");
 const userModel = require("../Models/userModel");
+const jwt = require("jsonwebtoken");
 
 const createToken = (_id) => {
-  const jwtSecretKey = process.env.JWT_SECRET_KEY;
+  const jwtKey = process.env.JWT_SECRET_KEY;
 
-  return jwt.sign({ _id }, jwtSecretKey, { expiresIn: "3d" });
+  return jwt.sign({ _id }, jwtKey, { expiresIn: "3d" });
 };
 
 const registerUser = async (req, res) => {
