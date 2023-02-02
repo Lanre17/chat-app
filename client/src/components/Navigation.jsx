@@ -2,10 +2,10 @@ import React from "react";
 import { Nav, Navbar, Container, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import logo from "../assets/logo.png";
-import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import Notifications from "./Chat/Notifications";
+
 
 function Navigation() {
   const { user, logoutUser } = useContext(AuthContext);

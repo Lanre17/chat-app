@@ -4,7 +4,6 @@ import moment from "moment";
 import { AuthContext } from "../../context/AuthContext";
 import { unreadNotificationsFunc } from "../../utils/unreadNotifications";
 
-
 const Notifications = () => {
   const { user } = useContext(AuthContext);
   const {
