@@ -1,6 +1,7 @@
 const cors = require("cors");
 const mongoose = require("mongoose");
 const express = require("express");
+const path = require("path");
 
 
 const chatRoute = require("./Routes/chatRoute");
@@ -19,7 +20,20 @@ app.use("/api/users", userRoute);
 app.use("/api/chats", chatRoute);
 app.use("/api/messages", messageRoute);
 
+// Serve frontend
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/build')));
 
+  app.get('*', (req, res) =>
+    res.sendFile(
+      path.resolve(__dirname, '../', 'client', 'build', 'index.html')
+    )
+  );
+} else {
+  app.get('/', (req, res) => res.send('Please set to production'));
+}
+
+// Connect to MongoDB
 const uri = process.env.MONGO_URI;
 const port = process.env.PORT || 5000;
 
