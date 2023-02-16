@@ -11,6 +11,7 @@ const colors = require ("colors")
 connectDB();
 app.use(express.json());
 app.use(cors());
+app.use(express.urlencoded( {extended: false} ))
 
 
 app.use("/api/users", userRoute);
@@ -22,7 +23,7 @@ const server = require('http').createServer(app);
 const PORT = 5000;
 const io = require('socket.io')(server, {
   cors: {
-    origin: 'https://peppy-stardust-018e0f.netlify.app',
+    origin: '*',
     methods: ['GET', 'POST']
   }
 })
