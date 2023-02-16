@@ -11,7 +11,6 @@ const colors = require ("colors")
 connectDB();
 app.use(express.json());
 app.use(cors());
-app.use(express.urlencoded( {extended: false} ))
 
 
 app.use("/api/users", userRoute);
@@ -20,10 +19,10 @@ app.use("/api/messages", messageRoute);
 
 
 const server = require('http').createServer(app);
-const port = process.env.PORT || 5000;
+const PORT = 5000;
 const io = require('socket.io')(server, {
   cors: {
-    origin: 'https://peppy-stardust-018e0f.netlify.app',
+    origin: 'http://localhost:5173',
     methods: ['GET', 'POST']
   }
 })
@@ -77,6 +76,6 @@ io.on("connection", (socket) => {
 
 
 
-server.listen(port, ()=> {
-  console.log((`server running on port ${port}`))
+server.listen(PORT, ()=> {
+  console.log('Server connected to port', PORT)
 })
