@@ -22,7 +22,7 @@ const server = require('http').createServer(app);
 const PORT = 5000;
 const io = require('socket.io')(server, {
   cors: {
-    origin: 'https://chatapplanreserver.herokuapp.com',
+    origin: 'https://peppy-stardust-018e0f.netlify.app/',
     methods: ['GET', 'POST']
   }
 })
