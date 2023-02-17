@@ -22,17 +22,10 @@ const server = require('http').createServer(app);
 const port = process.env.PORT || 5000;
 const io = require('socket.io')(server, {
   cors: {
-    origin: 'https://peppy-stardust-018e0f.netlify.app',
+    origin: 'https://chatapp177.netlify.app',
     methods: ['GET', 'POST']
   }
 })
-
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://peppy-stardust-018e0f.netlify.app');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  next();
-});
-
 
 // socket connection
 
