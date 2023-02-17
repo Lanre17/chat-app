@@ -19,10 +19,10 @@ app.use("/api/messages", messageRoute);
 
 
 const server = require('http').createServer(app);
-const PORT = 5000;
+const port = process.env.PORT || 5000;
 const io = require('socket.io')(server, {
   cors: {
-    origin: 'http://localhost:5173',
+    origin: 'https://peppy-stardust-018e0f.netlify.app',
     methods: ['GET', 'POST']
   }
 })
@@ -74,8 +74,6 @@ io.on("connection", (socket) => {
 });
 
 
-
-
-server.listen(PORT, ()=> {
-  console.log('Server connected to port', PORT)
-})
+app.listen(port, () => {
+  console.log(`Server running on port: ${port}...`);
+});
