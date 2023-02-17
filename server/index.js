@@ -27,6 +27,13 @@ const io = require('socket.io')(server, {
   }
 })
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://peppy-stardust-018e0f.netlify.app');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
+
+
 // socket connection
 
 let onlineUsers = [];
@@ -72,6 +79,7 @@ io.on("connection", (socket) => {
     io.emit("getUsers", onlineUsers);
   });
 });
+
 
 
 app.listen(port, () => {
