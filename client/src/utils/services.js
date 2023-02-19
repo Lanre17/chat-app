@@ -1,4 +1,4 @@
-export const baseUrl = "https://chatapp177.netlify.app/api";
+export const baseUrl = "https://chatapplanreserver.herokuapp.com/api";
 
 export const postRequest = async (baseUrl, body) => {
   const response = await fetch(baseUrl, {
