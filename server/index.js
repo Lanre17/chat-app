@@ -19,10 +19,10 @@ app.use("/api/messages", messageRoute);
 
 
 const server = require('http').createServer(app);
-const port = process.env.PORT || 5000;
+const port = 5000;
 const io = require('socket.io')(server, {
   cors: {
-    origin: 'https://chatapp177.netlify.app',
+    origin: 'https://localhost:5173',
     methods: ['GET', 'POST']
   }
 })
@@ -75,6 +75,6 @@ io.on("connection", (socket) => {
 
 
 
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`Server running on port: ${port}...`);
 });
