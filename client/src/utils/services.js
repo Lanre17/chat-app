@@ -1,4 +1,4 @@
-export const baseUrl = "https://localhost:5000/api";
+export const baseUrl = "https://chatapp177.netlify.app/api";
 
 export const postRequest = async (baseUrl, body) => {
   const response = await fetch(baseUrl, {

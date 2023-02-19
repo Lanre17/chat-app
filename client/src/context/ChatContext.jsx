@@ -31,7 +31,7 @@ export const ChatContextProvider = ({ children, user }) => {
 
 //   // initialize socket
   useEffect(() => {
-    const newSocket = io("https://localhost:5000");
+    const newSocket = io("https://chatapp177.netlify.app");
     setSocket(newSocket);
 
     return () => {
