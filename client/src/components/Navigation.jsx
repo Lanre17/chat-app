@@ -1,6 +1,7 @@
 import React from "react";
 import { Nav, Navbar, Container, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
@@ -40,14 +41,16 @@ function Navigation() {
            {user && (
               <>
                 <Notifications />
-                <Button
-                  onClick={() => logoutUser()}
-                  to="/login"
-                  className="btn-outline-primary"
-                  style={{ color: "white" }}
-                >
-                  Logout
-                </Button>
+                <Link to="/">
+                  <Button
+                    onClick={() => logoutUser()}
+                    to="/login"
+                    className="btn-outline-primary"
+                    style={{ color: "white" }}
+                  >
+                    Logout
+                  </Button>
+                </Link>
               </>
             )}
           </Nav>

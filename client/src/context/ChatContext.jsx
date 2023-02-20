@@ -31,7 +31,7 @@ export const ChatContextProvider = ({ children, user }) => {
 
 //   // initialize socket
   useEffect(() => {
-    const newSocket = io("http://localhost:5000");
+    const newSocket = io("https://chat-app-api-ckpq.onrender.com");
     setSocket(newSocket);
 
     return () => {
